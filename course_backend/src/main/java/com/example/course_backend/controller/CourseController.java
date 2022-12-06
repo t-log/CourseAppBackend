@@ -11,6 +11,9 @@ public class CourseController {
     @GetMapping("/")
     public String homePage(){return "Welcome to course home page";}
 
+    @GetMapping("/view")
+    public String viewPage(){return "Course view page";}
+
     @PostMapping(path = "/add",consumes = "application/json",produces = "application/json")
     public String addPage(@RequestBody Course c){
         System.out.println(c.getTitle());
