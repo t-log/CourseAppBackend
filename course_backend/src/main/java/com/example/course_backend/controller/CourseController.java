@@ -16,6 +16,12 @@ public class CourseController {
     public String homePage(){return "Welcome to course home page";}
 
     @CrossOrigin(origins = "*")
+    @PostMapping(path = "/search",consumes = "application/json",produces = "application/json")
+    public List<Course> searchCourse(@RequestBody Course c){
+        return (List<Course>) dao.searchCourse(c.getTitle());
+    }
+
+    @CrossOrigin(origins = "*")
     @GetMapping("/view")
     public List<Course> viewPage()
     {
